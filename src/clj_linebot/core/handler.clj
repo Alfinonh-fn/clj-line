@@ -53,17 +53,13 @@
 (def channel-access-token
   (:channel-access-token env))
 
-(defn post-to-line
-  ([s reply-token]
-   (let []
-     (client/post post-url
-                  {:content-type :json
-                   :authorization (str "Bearer " channel-access-token)
-                   :form-params {:replyToken reply-token
-                                 :messages [{:type "text"
-                                             :text s}]}})))
-  ([s]
-   (post-to-line s nil)))
+(defn post-to-line [s reply-token]
+  (client/post post-url
+               {:content-type :json
+                :headers {"Authorization" (str "Bearer " channel-access-token)}
+                :form-params {:replyToken reply-token
+                              :messages [{:type "text"
+                                          :text s}]}}))
 
 (defn eval-expr
   "Evaluate the given string"
