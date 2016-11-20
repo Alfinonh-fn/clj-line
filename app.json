@@ -3,8 +3,11 @@
     "description": "A clojure chat bot that is easy to integrate with line.",
     "keywords": ["clojure", "line", "chat", "bot"],
     "env": {
-        "COMMAND_TOKEN": {
-            "description": "The token for your slash command hook."
+        "CHANNEL_SECRET": {
+            "description": ""
+        },
+        "CHANNEL_ACCESS_TOKEN": {
+            "description": ""
         },
         "POST_URL": {
             "description": "The URL to post stuff to line."

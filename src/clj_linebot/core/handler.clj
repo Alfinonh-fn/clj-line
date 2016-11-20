@@ -4,6 +4,7 @@
             [clojail.core :refer [sandbox]]
             [clojail.testers :refer [secure-tester-without-def blacklist-objects blacklist-packages blacklist-symbols blacklist-nses blanket]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
+            [ring.middleware.json :refer [wrap-json-params]]
             [environ.core :refer [env]]
             [ring.adapter.jetty :refer [run-jetty]]
             [clj-http.client :as client]
@@ -14,9 +15,7 @@
             [clojure.test.check]
             [cemerick.pomegranate])
   (:import java.io.StringWriter
-           java.util.concurrent.TimeoutException
-           com.linecorp.bot.model.ReplyMessage
-           com.linecorp.bot.model.message.TextMessage)
+           java.util.concurrent.TimeoutException)
   (:gen-class))
 
 (def insecure-tester
@@ -116,8 +115,9 @@
   (POST "/callback" req (handle-clj (:params req)))
   (route/not-found "Not Found"))
 
-(def app (wrap-defaults approutes
-                        api-defaults))
+(def app (-> approutes
+             (wrap-defaults api-defaults)
+             wrap-json-params))
 
 (defn -main [& args]
   (run-jetty app {:port (Integer/parseInt (or (:port env)
