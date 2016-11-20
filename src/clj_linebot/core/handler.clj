@@ -59,7 +59,7 @@
      (client/post post-url
                   {:content-type :json
                    :authorization (str "Bearer " channel-access-token)
-                   :form-params {:reply-token reply-token
+                   :form-params {:replyToken reply-token
                                  :messages [{:type "text"
                                              :text s}]}})))
   ([s]
@@ -103,7 +103,7 @@
 (defn handle-clj [params]
   (let [event (first (:events params))
         type (:type event)
-        reply-token (:reply-token event)
+        reply-token (:replyToken event)
         text (get-in event [:message :text])]
     (when (= type "message")
       (eval-and-post text reply-token))
