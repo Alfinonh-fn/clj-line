@@ -8,6 +8,7 @@
             [environ.core :refer [env]]
             [ring.adapter.jetty :refer [run-jetty]]
             [clj-http.client :as client]
+            [clojure.string :as str]
             [clojure.algo.monads]
             [clojure.core.async]
             [clojure.data.json]
@@ -101,8 +102,9 @@
         type (:type event)
         reply-token (:replyToken event)
         text (get-in event [:message :text])]
-    (when (= type "message")
-      (eval-and-post text reply-token))
+    (when-let [sexp (and (= type "message")
+                         (fnext (str/split text #"> *")))]
+      (eval-and-post sexp reply-token))
     {:status 200
      :body ""
      :headers {"Content-Type" "text/plain"}}))
