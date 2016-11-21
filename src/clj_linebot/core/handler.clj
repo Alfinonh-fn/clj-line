@@ -103,7 +103,8 @@
         reply-token (:replyToken event)
         text (get-in event [:message :text])]
     (when-let [sexp (and (= type "message")
-                         (fnext (str/split text #"> *")))]
+                         (str/starts-with? text ">")
+                         (fnext (str/split text #"> *" 2)))]
       (eval-and-post sexp reply-token))
     {:status 200
      :body ""
