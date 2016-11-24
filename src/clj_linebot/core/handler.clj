@@ -46,7 +46,7 @@
 (def sb (sandbox clj-linebot-tester))
 
 (def post-url
-  (:post-url env))
+  "https://api.line.me/v2/bot/message/reply")
 
 (def channel-secret
   (:channel-secret env))

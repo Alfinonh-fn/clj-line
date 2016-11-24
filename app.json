@@ -1,16 +1,13 @@
 {
     "name": "clj-linebot",
-    "description": "A clojure chat bot that is easy to integrate with line.",
+    "description": "A clojure chat bot that is easy to integrate with LINE.",
     "keywords": ["clojure", "line", "chat", "bot"],
     "env": {
         "CHANNEL_SECRET": {
-            "description": ""
+            "description": "channel secret"
         },
         "CHANNEL_ACCESS_TOKEN": {
-            "description": ""
-        },
-        "POST_URL": {
-            "description": "The URL to post stuff to line."
+            "description": "channel access token"
         }
     }
 }
