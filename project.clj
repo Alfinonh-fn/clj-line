@@ -16,10 +16,7 @@
                  [environ "1.0.2"]
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
-                 [ring/ring-json "0.4.0"]
-                 [com.linecorp.bot/line-bot-api-client "1.3.0"]
-                 [com.linecorp.bot/line-bot-model "1.3.0"]
-                 [com.linecorp.bot/line-bot-servlet "1.3.0"]]
+                 [ring/ring-json "0.4.0"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler clj-linebot.core.handler/app}
   :uberjar-name "clj-linebot.jar"
