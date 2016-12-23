@@ -111,6 +111,7 @@
      :headers {"Content-Type" "text/plain"}}))
 
 (defroutes approutes
+  (GET "/" [] "A Clojure bot for LINE")
   (POST "/callback" req (handle-clj (:params req)))
   (route/not-found "Not Found"))
 
