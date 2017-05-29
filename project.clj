@@ -18,6 +18,8 @@
                  [ring/ring-defaults "0.1.5"]
                  [ring/ring-json "0.4.0"]
                  [funcool/cats "2.1.0"]
+                 [funcool/promesa "1.8.1"]
+                 [manifold "0.1.6"]
                  [prismatic/schema "1.1.6"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler clj-linebot.core.handler/app}
