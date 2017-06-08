@@ -18,6 +18,7 @@
             [clojure.test.check.generators]
             [clojure.test.check.properties]
             [cemerick.pomegranate]
+            [beicon.core]
             [cats.builtin]
             [cats.context]
             [cats.core]

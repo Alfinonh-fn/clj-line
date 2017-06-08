@@ -17,6 +17,7 @@
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
                  [ring/ring-json "0.4.0"]
+                 [funcool/beicon "3.5.0"]
                  [funcool/cats "2.1.0"]
                  [funcool/promesa "1.8.1"]
                  [manifold "0.1.6"]
